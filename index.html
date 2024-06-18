@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity Gym</title>
+   
+    <link rel="icon" type="image/jpeg" href="tablogo.jpeg">
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="infblink2.gif" width="90" height="75" alt="Infinity Gym Logo">
+            <div class="logo-text"> <h5 style="color:rgb(255, 255, 255);">Infinity Gym</h5></div>
+        </div>
+        <div>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Feedback</a>
+        </div>
+    </div>
+    
+    <video autoplay muted loop class="background-video">
+        <source src="videoplayback (2).mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="main-content">
+        <div class="form-container">
+            <form class="signup-form" name="signup" onsubmit="return validateForm()">
+                <h2>Sign Up</h2>
+                <input type="text" name="fullname" id="fullname" placeholder="Full name" required>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+                <input type="password" name="password" id="password1" placeholder="Password" required>
+                <input type="password" name="password" id="password2" placeholder="Confirm Password" required>
+
+                <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()"> Show Password
+                <div class="error-message"></div>
+                <input type="submit" value="Create Account">
+            </form>
+            <p>Already have an account? <a href="login.html">Click here to login!</a></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <div class="footer">
+        <p>2024 Infinity Gym. All rights reserved.</p>
+        <div>
+            <a href="https://www.facebook.com">Facebook</a>
+            <a href="https://www.Whatsappweb.com">Whatsapp</a>
+            <a href="https://www.instagram.com">Instagram</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        /* Style Forms */
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: #fff; /* Added text color */
+        }
+
+        .form {
+            max-width: 400px;
+            width: 100%;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #000; /* Added text color */
+        }
+
+        /* Style Inputs */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        /* Style Error Messages */
+        .error-message {
+            color: #f70000;
+            margin-bottom: 10px;
+        }
+
+        /* Style Submit Button */
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #74ff58;
+            color: #000;
+            cursor: pointer;
+        }
+
+        /* Style Forgot Password Link */
+        a {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #000; /* Changed link color */
+        }
+
+        a:hover {
+            color: #74ff58; /* Changed link hover color */
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Form -->
+    <div class="form">
+        <h2>Login</h2>
+        <form name="login" id="login-form" action="login.php" method="post" onsubmit="return validateLoginForm()">
+            <input type="email" name="email" id="login-email" placeholder="Email" required>
+            <input type="password" name="password" id="login-password" placeholder="Password" required>
+           
+            <input type="checkbox" id="show-password-checkbox" onchange="togglePasswordVisibility()">
+            <label for="show-password-checkbox">Show Password</label>
+            <div class="error-message" id="login-error"></div>
+            <input type="submit" value="Login">
+        </form>
+        
+        <a href="forgotpass.html">Forgot Password?</a>
+    </div>
+
+    <script>
+        function validateLoginForm() {
+            var email = document.getElementById('login-email').value;
+            var password = document.getElementById('login-password').value;
+            var error = document.getElementById('login-error');
+
+            // Simple email validation
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                error.textContent = "Please enter a valid email address";
+                return false;
+            }
+
+            // Simple password length validation
+            if (password.length < 8) {
+                error.textContent = "Password must be at least 8 characters long";
+                return false;
+            }
+
+            // If all validations pass, return true
+            return true;
+        }
+
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById('login-password');
+            passwordInput.type = document.getElementById('show-password-checkbox').checked ? "text" : "password";
+        }
+    </script>
+</body>
+</html>
